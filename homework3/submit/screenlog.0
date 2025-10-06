@@ -1,0 +1,597 @@
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sbac[Ktch calculatepi.sbatch-ossmal.sh 
+[?2004lSubmitted batch job 1632410
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ scontrol show job 1632410
+[?2004lJobId=1632410 JobName=MNXB11 Pi homework3 submission
+   UserId=ossmal(32231) GroupId=mnxb11(32200) MCS_label=N/A
+   Priority=66948 Nice=0 Account=hep2023-1-6 QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:04 TimeLimit=00:07:00 TimeMin=N/A
+   SubmitTime=2025-10-06T13:50:31 EligibleTime=2025-10-06T13:50:31
+   AccrueTime=2025-10-06T13:50:31
+   StartTime=2025-10-06T13:50:32 EndTime=2025-10-06T13:57:32 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-10-06T13:50:32 Scheduler=Main
+   Partition=hep AllocNode:Sid=cosmos-pkf:3926661
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=cx08
+   BatchHost=cx08
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=1,mem=25945M,node=1,billing=1
+   AllocTRES=cpu=1,mem=25945M,node=1,billing=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=25945M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/ossmal/git/MNXB11-Homework-2025/homework3/calculatePI/scripts/calculatepi.sbatch-ossmal.sh
+   WorkDir=/home/ossmal/git/MNXB11-Homework-2025/homework3/calculatePI/scripts
+   StdErr=/home/ossmal/git/MNXB11-Homework-2025/homework3/calculatePI/scripts/slurm-1632410.out
+   StdIn=/dev/null
+   StdOut=/home/ossmal/git/MNXB11-Homework-2025/homework3/calculatePI/scripts/slurm-1632410.out
+   Power=
+   
+
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ scontrol show job 1632410batch calculatepi.sbatch-ossmal.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Pcontrol show job 1632410[Ksacct -J 1632410
+[?2004lsacct: invalid option -- 'J'
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sacct -J 1632410[C[1P 1632410j 1632410
+[?2004lJobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+1632410      MNXB11 Pi+        hep hep2023-1+          1    RUNNING      0:0 
+1632410.bat+      batch            hep2023-1+          1    RUNNING      0:0 
+1632410.ext+     extern            hep2023-1+          1    RUNNING      0:0 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sacct -j 1632410 --format=J[KJobID,State,Start,End,Ela psed
+[?2004lJobID             State               Start                 End    Elapsed 
+------------ ---------- ------------------- ------------------- ---------- 
+1632410         RUNNING 2025-10-06T13:50:32             Unknown   00:01:25 
+1632410.bat+    RUNNING 2025-10-06T13:50:32             Unknown   00:01:25 
+1632410.ext+    RUNNING 2025-10-06T13:50:32             Unknown   00:01:25 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sbatch -N4 WASTED.sh 
+[?2004lSubmitted batch job 1632416
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sabatch -N4 WASTED.sh acct -j 1632410 --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K416
+[?2004lJobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+1632416          WASTED        hep hep2023-1+          4    RUNNING      0:0 
+1632416.bat+      batch            hep2023-1+          1    RUNNING      0:0 
+1632416.ext+     extern            hep2023-1+          4    RUNNING      0:0 
+1632416.0           who            hep2023-1+          4  COMPLETED      0:0 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sacct -j 1632416batch -N4 WASTED.sh acct -j 1632410 --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CJ[C[C[C[C[C[C[C[C[9@control show job[C[C[C[C[C[C[C[C[9Pacct -J[C[C[C[C[C[C[C[Cj[C[C[C[C[C[C[C[C --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[30Pbatch -N4 WASTED.sh 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pacct -j 1632416[Kscancel 1632416
+[?2004lkossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ squeue
+[?2004l             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1632256   gpua100 19G1_10A  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632259   gpua100 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632263   gpua100 9F2_8E3_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632264   gpua100 12F11_4A  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632248   gpua100 6E3_6C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632245   gpua100 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632237   gpua100 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632233   gpua100 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632221   gpua100 12D10_5T  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632217   gpua100 DT_P2408  cguetot PD       0:00      1 (Resources)
+           1631648   gpua100 lhpc_gpu ph0245st  R    4:25:58      1 cg08
+           1632168   gpua100 interact   hzhang  R    2:43:45      1 cg11
+           1632373   gpua100     boga    erhar  R      20:35      1 cg10
+           1632205   gpua100 DT_P2408  cguetot  R      33:36      1 cg09
+           1632201   gpua100 DT_P2408  cguetot  R      59:36      1 cg07
+           1631647  gpua100i NaroNet_  eduamgo PD       0:00      1 (Resources)
+           1632277  gpua100i      200 gtesei00 PD       0:00      1 (Priority)
+           1632276  gpua100i      150 gtesei00 PD       0:00      1 (Priority)
+           1632275  gpua100i      100 gtesei00 PD       0:00      1 (Priority)
+           1632274  gpua100i       50 gtesei00 PD       0:00      1 (Priority)
+           1632273  gpua100i        0 gtesei00 PD       0:00      1 (Priority)
+           1631592  gpua100i AHI_revi   lovlin PD       0:00      1 (Priority)
+           1631593  gpua100i AHI_revi   lovlin PD       0:00      1 (Priority)
+           1628926  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628924  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628921  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628918  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628914  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628910  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628908  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628905  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1628902  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629382  gpua100i 6E3_6P_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629381  gpua100i 9F2_8A2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629379  gpua100i 12D10_5A  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629377  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629376  gpua100i 14E4_9A2  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629375  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629372  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629368  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629364  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629362  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629359  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629356  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629352  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630662  gpua100i 19G1_10E  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630659  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630656  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630652  gpua100i 3F3_3C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631465  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631463  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631460  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631457  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631453  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631481  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631479  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631476  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631473  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631469  gpua100i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632236  gpua100i 3A9_1P_D  cguetot PD       0:00      1 (Priority)
+           1632232  gpua100i 14E4_9C2  cguetot PD       0:00      1 (Priority)
+           1632230  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632227  gpua100i 3C10_7T_  cguetot PD       0:00      1 (Priority)
+           1632224  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632220  gpua100i 3A9_1.1T  cguetot PD       0:00      1 (Priority)
+           1632216  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632214  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632211  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632208  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1632204  gpua100i DT_P2408  cguetot PD       0:00      1 (Priority)
+           1631591  gpua100i AHI_revi   lovlin  R      33:57      1 cg20
+           1631589  gpua100i AHI_revi   lovlin  R    4:44:52      1 cg19
+           1629458  gpua100i PBLMRPO4  sopasak  R 1-19:17:40      1 cg21
+           1629457  gpua100i   PBLMO4  sopasak  R 1-20:34:32      1 cg18
+           1626427  gpua100i DT_P2408  cguetot  R    6:14:20      1 cg21
+           1628898  gpua100i DT_P2408  cguetot  R    5:22:23      1 cg20
+           1629374    gpua40 14E4_9P_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629371    gpua40 6E3_6T_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629367    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629361    gpua40 3F3_3T_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630669    gpua40 3A9_1A_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630666    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630661    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630658    gpua40 9F2_8C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630655    gpua40 3F3_3A2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630651    gpua40 3A9_1C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631448    gpua40 12F11_4A  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631500    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631498    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631495    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631491    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631489    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631487    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631484    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631478    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631475    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631472    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631468    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631462    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631459    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631456    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631452    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632262    gpua40 3A9_1E3_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632261    gpua40 3F3_3E3_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632260    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632258    gpua40 6E3_6P_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632254    gpua40 3F3_3A2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632252    gpua40 19G1_10C  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632250    gpua40 3A9_1A2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632247    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632243    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632241    gpua40 14E4_9P_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632239    gpua40 6E3_6T_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632235    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632229    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632226    gpua40 3A9_1.1P  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632223    gpua40 12F11_4T  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632219    gpua40 19G1_10T  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632213    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632210    gpua40 9F2_8T_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632207    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632203    gpua40 DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1629358    gpua40 DT_P2408  cguetot  R    1:52:39      1 cg04
+           1629355    gpua40 DT_P2408  cguetot  R    2:51:33      1 cg05
+           1629351    gpua40 DT_P2408  cguetot  R    3:22:17      1 cg03
+           1630665   gpua40i 3C10_7E3  cguetot PD       0:00      1 (AssocGrpGRES)
+           1630668   gpua40i 3A9_1C_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631447   gpua40i 9F2_8E3_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631451   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631455   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631458   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631461   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631464   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631467   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631471   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631474   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631477   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631480   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631483   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631486   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631488   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631490   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631492   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631494   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631497   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1631499   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632202   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632206   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632209   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632212   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632215   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632218   gpua40i 14E4_9T_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632222   gpua40i 3F3_3T_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632225   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632228   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632231   gpua40i 12F11_4P  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632234   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632238   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632240   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632242   gpua40i DT_P2408  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632244   gpua40i 9F2_8P_D  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632246   gpua40i 3A9_1C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632249   gpua40i 3F3_3C2_  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632251   gpua40i 3C10_7C2  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632253   gpua40i 12F11_4C  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632255   gpua40i 12D10_5C  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632257   gpua40i 14E4_9E3  cguetot PD       0:00      1 (AssocGrpGRES)
+           1632370   gpua40i lhpc_rst    annac  R      26:20      1 cg17
+           1630663   gpua40i 12F11_4E  cguetot  R       9:34      1 cg16
+           1630660   gpua40i DT_P2408  cguetot  R      31:54      1 cg14
+           1630657   gpua40i 19G1_10A  cguetot  R      42:47      1 cg15
+           1630654   gpua40i DT_P2408  cguetot  R    1:50:46      1 cg23
+           1631650   gpua40i lhpc_par   reynoo  R    4:14:37      1 cg13
+           1632410       hep MNXB11 P   ossmal  R       2:32      1 cx08
+           1632165       hep interact   stenas  R    2:45:17      1 cx08
+           1626675       hep    BSMPT filipgus  R 2-21:22:42      8 cx[06-07,09-11,13-15]
+           1632415      lu48 lhpc_jup nimamohs PD       0:00      1 (Resources)
+           1632305      lu48      opt maryam42 PD       0:00      1 (Priority)
+           1632358      lu48      opt maryam42 PD       0:00      1 (Priority)
+           1632303      lu48 dask-mpi    antje PD       0:00      1 (Priority)
+           1632413      lu48    guess ju1032as PD       0:00      1 (Priority)
+           1632414      lu48 ap_guess ju1032as PD       0:00      1 (Dependency)
+           1631588      lu48    C3_nD  bjornja PD       0:00     10 (AssocGrpCpuLimit)
+           1615856      lu48 restart1 nabanita PD       0:00      4 (AssocGrpCpuLimit)
+           1632302      lu48     deg2   alepal PD       0:00      2 (Priority)
+           1632304      lu48     deg3   alepal PD       0:00      2 (Priority)
+           1632308      lu48 CD_Diamo  chrisdo PD       0:00      2 (Priority)
+           1632401      lu48     deg1   alepal PD       0:00      2 (Priority)
+           1632394      lu48 LFS26_SR dagsjoli PD       0:00      1 (Priority)
+           1632398      lu48 LFS26_SR dagsjoli PD       0:00      1 (Priority)
+           1632395      lu48 LFS26_SR dagsjoli PD       0:00      1 (Priority)
+           1631260      lu48      Mel    osven PD       0:00      4 (AssocGrpCpuLimit)
+           1607211      lu48     BBC2 alexstro PD       0:00     16 (Dependency)
+           1596490      lu48     BBC2 alexstro PD       0:00     16 (Dependency)
+           1596489      lu48     BBC2 alexstro PD       0:00     16 (Dependency)
+           1596488      lu48     BBC2 alexstro PD       0:00     16 (Dependency)
+           1632390      lu48 FSIM3hex   friale PD       0:00      1 (Priority)
+           1632382      lu48 LFS26_SR dagsjoli  R       8:51      1 cn065
+           1632385      lu48 LFS26_SR dagsjoli  R       8:51      1 cn135
+           1632171      lu48 JRA_wet_  margotk  R    2:43:08      1 cn088
+           1632196      lu48 JRA_up_N  margotk  R    2:25:11      1 cn106
+           1632288      lu48 JRA_up_R  margotk  R    2:08:27      1 cn146
+           1620421      lu48  jupyter      per  R 4-12:59:19      1 cn134
+           1631530      lu48 400ep8f1    elham  R   17:15:43      1 cn059
+           1618059      lu48   ewclub      jan  R 5-06:50:37      1 cn111
+           1618058      lu48   ewclub      jan  R 5-06:52:31      1 cn111
+           1618057      lu48   ewclub      jan  R 5-06:52:56      1 cn111
+           1618053      lu48   ewclub      jan  R 5-06:55:28      1 cn059
+           1631605      lu48 lhpc_cpu ph0245st  R    4:41:34      1 cn010
+           1631585      lu48  trinity   nikwah  R    7:25:48      1 cn059
+           1618796      lu48 viscE3_m   trulle  R 4-23:39:40      1 cn059
+           1618795      lu48 viscE3_m   trulle  R 4-23:39:47      1 cn059
+           1618794      lu48 viscE3_m   trulle  R 4-23:39:59      1 cn001
+           1618793      lu48 viscE3_m   trulle  R 4-23:40:12      1 cn001
+           1618792      lu48 viscE3_m   trulle  R 4-23:40:26      1 cn001
+           1618791      lu48 viscE3_m   trulle  R 4-23:40:32      1 cn001
+           1618790      lu48 viscE3_m   trulle  R 4-23:40:44      1 cn001
+           1618789      lu48 viscE3_m   trulle  R 4-23:40:54      1 cn001
+           1618788      lu48 viscE3_m   trulle  R 4-23:41:55      1 cn001
+           1618787      lu48 viscE3_m   trulle  R 4-23:42:11      1 cn001
+           1618785      lu48 viscE3_m   trulle  R 4-23:42:31      1 cn001
+           1618783      lu48 viscE3_m   trulle  R 4-23:42:44      1 cn001
+           1618782      lu48 viscE3_m   trulle  R 4-23:43:09      1 cn001
+           1618663      lu48 viscE3_m   trulle  R 5-01:08:39      1 cn068
+           1618660      lu48 viscE3_m   trulle  R 5-01:09:57      1 cn068
+           1618659      lu48 viscE3_m   trulle  R 5-01:10:34      1 cn068
+           1618637      lu48 viscE3_m   trulle  R 5-01:45:47      1 cn068
+           1618577      lu48 viscE3_m   trulle  R 5-02:15:04      1 cn068
+           1618576      lu48 viscE3_m   trulle  R 5-02:15:37      1 cn068
+           1618568      lu48 viscE3_m   trulle  R 5-02:16:34      1 cn068
+           1618517      lu48 viscE3_m   trulle  R 5-02:21:50      1 cn068
+           1618516      lu48 viscE3_m   trulle  R 5-02:22:16      1 cn068
+           1618515      lu48 viscE3_m   trulle  R 5-02:22:41      1 cn068
+           1618514      lu48 viscE3_m   trulle  R 5-02:23:47      1 cn068
+           1618512      lu48 viscE3_m   trulle  R 5-02:26:30      1 cn068
+           1618511      lu48 viscE3_m   trulle  R 5-02:27:31      1 cn068
+           1618507      lu48 viscE3_m   trulle  R 5-02:31:14      1 cn068
+           1618504      lu48 viscE3_m   trulle  R 5-02:32:31      1 cn068
+           1618502      lu48 viscE3_m   trulle  R 5-02:33:27      1 cn068
+           1618498      lu48 viscE3_m   trulle  R 5-02:35:20      1 cn068
+           1618496      lu48 viscE3_m   trulle  R 5-02:35:53      1 cn068
+           1618495      lu48 viscE3_m   trulle  R 5-02:36:31      1 cn068
+           1618493      lu48 viscE3_m   trulle  R 5-02:37:00      1 cn068
+           1618492      lu48 viscE3_m   trulle  R 5-02:37:25      1 cn068
+           1615483      lu48 viscE3_m   trulle  R 6-19:59:28      1 cn111
+           1615482      lu48 viscE3_m   trulle  R 6-20:00:08      1 cn111
+           1615303      lu48 E1_mu0_j   trulle  R 6-23:33:39      1 cn059
+           1631377      lu48 Gutmark- yu6706li  R   18:50:52     20 cn[099,101-102,112,114,116-122,124-126,174,176-178,182]
+           1632365      lu48 nozzleU1 th2611wi  R      28:36      1 cn060
+           1632298      lu48 dask-mpi    antje  R    1:54:40      1 cn089
+           1632296      lu48 dask-mpi    antje  R    2:04:35      1 cn152
+           1632293      lu48 dask-mpi    antje  R    2:07:21      1 cn108
+           1631388      lu48 lennart_    lrikk  R   19:34:48      1 cn006
+           1632287      lu48 dask-mpi    antje  R    2:08:44      1 cx01
+           1632284      lu48 dask-mpi    antje  R    2:09:24      1 cn145
+           1632281      lu48 dask-mpi    antje  R    2:10:04      1 cn140
+           1632172      lu48 viscE3_m   trulle  R    2:43:08      1 cn068
+           1632170      lu48 viscE3_m   trulle  R    2:43:33      1 cn068
+           1632166      lu48 viscE3_m   trulle  R    2:44:20      1 cn068
+           1632163      lu48 viscE3_m   trulle  R    2:46:11      1 cn068
+           1632161      lu48 viscE3_m   trulle  R    2:46:31      1 cn068
+           1632160      lu48 viscE3_m   trulle  R    2:46:47      1 cn068
+           1632159      lu48 viscE3_m   trulle  R    2:47:07      1 cn068
+           1632157      lu48 viscE3_m   trulle  R    2:47:21      1 cn068
+           1632139      lu48 viscE3_m   trulle  R    2:53:29      1 cn068
+           1632133      lu48 E1_mu0_j   trulle  R    2:58:33      1 cn068
+           1632132      lu48 E1_mu0_j   trulle  R    2:58:51      1 cn068
+           1632131      lu48 E1_mu0_j   trulle  R    2:59:09      1 cn068
+           1632129      lu48 E1_mu0_j   trulle  R    2:59:27      1 cn068
+           1632128      lu48 E1_mu0_j   trulle  R    2:59:43      1 cn068
+           1632125      lu48 E1_mu0_j   trulle  R    3:01:58      1 cn068
+           1632124      lu48 E1_mu0_j   trulle  R    3:02:15      1 cn068
+           1632123      lu48 E1_mu0_j   trulle  R    3:02:30      1 cn068
+           1632122      lu48 E1_mu0_j   trulle  R    3:02:42      1 cn068
+           1632121      lu48 E1_mu0_j   trulle  R    3:02:58      1 cn068
+           1632120      lu48 E1_mu0_j   trulle  R    3:03:11      1 cn068
+           1632118      lu48 E1_mu0_j   trulle  R    3:05:53      1 cn068
+           1632117      lu48 E1_mu0_j   trulle  R    3:06:06      1 cn068
+           1632116      lu48 E1_mu0_j   trulle  R    3:06:27      1 cn015
+           1632115      lu48 E1_mu0_j   trulle  R    3:06:44      1 cn015
+           1632114      lu48 E1_mu0_j   trulle  R    3:07:03      1 cn015
+           1632113      lu48 E1_mu0_j   trulle  R    3:07:16      1 cn015
+           1632109      lu48 E1_mu0_j   trulle  R    3:07:50      1 cn015
+           1632108      lu48 E1_mu0_j   trulle  R    3:08:06      1 cn015
+           1632107      lu48 E1_mu0_j   trulle  R    3:08:25      1 cn015
+           1632106      lu48 E1_mu0_j   trulle  R    3:09:04      1 cn015
+           1632105      lu48 E1_mu0_j   trulle  R    3:09:41      1 cn015
+           1632104      lu48 E1_mu0_j   trulle  R    3:09:59      1 cn015
+           1632100      lu48 E1_mu0_j   trulle  R    3:10:17      1 cn015
+           1632099      lu48 E1_mu0_j   trulle  R    3:10:33      1 cn001
+           1632098      lu48 E1_mu0_j   trulle  R    3:10:52      1 cn001
+           1632096      lu48 E1_mu0_j   trulle  R    3:11:15      1 cn001
+           1632095      lu48 E1_mu0_j   trulle  R    3:11:33      1 cn001
+           1632094      lu48 E1_mu0_j   trulle  R    3:11:58      1 cn001
+           1632191      lu48 CD_Diamo  chrisdo  R    2:32:00      2 cn[090,104]
+           1631586      lu48    C2_nD  bjornja  R    6:01:54     10 cn[019,026-028,031,033-036,085]
+           1632376      lu48     pppy     vida  R      21:50      1 cn068
+           1632200      lu48 CD_Diamo  chrisdo  R    2:16:34      2 cn[143-144]
+           1629461      lu48  7LMtzAH maryam42  R 1-20:49:58      1 cn105
+           1628987      lu48      opt maryam42  R 2-04:07:21      1 cn151
+           1631514      lu48    12LAH maryam42  R   17:58:08      1 cn009
+           1631336      lu48    12LAH maryam42  R   22:04:31      1 cn170
+           1621580      lu48      opt maryam42  R 4-04:42:08      1 cn052
+           1631604      lu48      big maryam42  R    4:41:40      1 cn021
+           1632061      lu48      big maryam42  R    3:33:28      1 cn113
+           1619382      lu48 viscE3_m   trulle  R 4-20:41:38      1 cn060
+           1619383      lu48 viscE3_m   trulle  R 4-20:41:38      1 cn060
+           1619367      lu48 viscE3_m   trulle  R 4-20:45:38      1 cn060
+           1619368      lu48 viscE3_m   trulle  R 4-20:45:38      1 cn060
+           1619369      lu48 viscE3_m   trulle  R 4-20:45:38      1 cn060
+           1619363      lu48 viscE3_m   trulle  R 4-20:47:38      1 cn107
+           1619364      lu48 viscE3_m   trulle  R 4-20:47:38      1 cn107
+           1619365      lu48 viscE3_m   trulle  R 4-20:47:38      1 cn107
+           1619366      lu48 viscE3_m   trulle  R 4-20:47:38      1 cn060
+           1619347      lu48 viscE3_m   trulle  R 4-20:51:38      1 cn015
+           1619348      lu48 viscE3_m   trulle  R 4-20:51:38      1 cn015
+           1619349      lu48 viscE3_m   trulle  R 4-20:51:38      1 cn015
+           1619350      lu48 viscE3_m   trulle  R 4-20:51:38      1 cn015
+           1619345      lu48 viscE3_m   trulle  R 4-20:53:38      1 cn142
+           1619346      lu48 viscE3_m   trulle  R 4-20:53:38      1 cn015
+           1619299      lu48 viscE3_m   trulle  R 4-21:03:38      1 cn059
+           1619300      lu48 viscE3_m   trulle  R 4-21:03:38      1 cn059
+           1619301      lu48 viscE3_m   trulle  R 4-21:03:38      1 cn059
+           1619302      lu48 viscE3_m   trulle  R 4-21:03:38      1 cn059
+           1619295      lu48 viscE3_m   trulle  R 4-21:07:38      1 cn059
+           1619276      lu48 viscE3_m   trulle  R 4-21:15:38      1 cn059
+           1619277      lu48 viscE3_m   trulle  R 4-21:15:38      1 cn059
+           1618880      lu48 viscE3_m   trulle  R 4-22:58:10      1 cn142
+           1618879      lu48 viscE3_m   trulle  R 4-22:58:15      1 cn142
+           1618878      lu48 viscE3_m   trulle  R 4-22:58:21      1 cn142
+           1618877      lu48 viscE3_m   trulle  R 4-22:58:44      1 cn142
+           1618876      lu48 viscE3_m   trulle  R 4-22:58:47      1 cn142
+           1618875      lu48 viscE3_m   trulle  R 4-22:58:50      1 cn142
+           1618874      lu48 viscE3_m   trulle  R 4-22:58:53      1 cn142
+           1618868      lu48 viscE3_m   trulle  R 4-22:59:53      1 cn142
+           1618866      lu48 viscE3_m   trulle  R 4-22:59:57      1 cn142
+           1618863      lu48 viscE3_m   trulle  R 4-23:00:17      1 cn142
+           1618834      lu48 viscE3_m   trulle  R 4-23:21:32      1 cn180
+           1618833      lu48 viscE3_m   trulle  R 4-23:21:44      1 cn180
+           1618832      lu48 viscE3_m   trulle  R 4-23:21:47      1 cn180
+           1618831      lu48 viscE3_m   trulle  R 4-23:22:06      1 cn180
+           1618830      lu48 viscE3_m   trulle  R 4-23:22:10      1 cn180
+           1618828      lu48 viscE3_m   trulle  R 4-23:22:29      1 cn180
+           1618827      lu48 viscE3_m   trulle  R 4-23:22:35      1 cn180
+           1618823      lu48 viscE3_m   trulle  R 4-23:23:32      1 cn180
+           1618822      lu48 viscE3_m   trulle  R 4-23:23:37      1 cn180
+           1631587      lu48    C1_nD  bjornja  R    4:03:29     10 cn[041,044,046-050,054,056-057]
+           1596487      lu48     BBC2 alexstro  R   13:44:45     16 cn[001,003-004,007-008,015-018,020,022-025,032,038]
+           1627114      lu48 f20hires   agertz  R 2-14:06:36      2 cn[005,131]
+           1607210      lu48     BBC2 alexstro  R    3:43:37     16 cn[159-169,172-173,179-181]
+           1632101      lu48 FSIM3hex   friale  R    3:10:14      1 cn011
+           1632362      lu48 _interac   friale  R      30:04      1 cn068
+           1631259      lu48      Mel    osven  R   20:17:42      4 cn[093-095,098]
+           1631258      lu48      Mel    osven  R   20:21:42      4 cn[029-030,037,171]
+           1630758      lu48 f20hires   agertz  R 1-03:11:50      2 cn[091-092]
+           1632405      lu48 _interac mo0034ei  R       6:02      1 cn107
+           1616329      lu48     Hst1    osven  R 5-23:03:59      4 cn[067,069-071]
+           1615855      lu48 restart1 nabanita  R 6-01:48:21      4 cn[081-084]
+           1615854      lu48 restart1 nabanita  R 6-01:48:37      4 cn[077-080]
+           1615853      lu48 restart1 nabanita  R 6-01:48:53      4 cn[073-076]
+           1615852      lu48 restart1 nabanita  R 6-01:49:10      4 cn[136-139]
+           1615512      lu48 restart1 nabanita  R 6-17:46:59      4 cn[002,012-014]
+           1615431      lu48 2_Ext_Le   agnber  R 6-20:59:14      4 cn[096-097,100,103]
+           1616328      lu48     Hst1    osven  R 5-23:50:36      4 cn[147-150]
+           1616327      lu48     Hst1    osven  R 5-23:53:32      4 cn[062,129,157-158]
+           1616326      lu48     Hst1    osven  R 5-23:53:34      4 cn[072,086,109-110]
+           1616325      lu48     Hst1    osven  R 5-23:53:37      4 cn[153-156]
+           1631204      lu48  noEla_2   annieb  R 1-01:18:46      1 cn040
+           1630769      lu48   VS10_2   annieb  R 1-02:47:04      1 cn175
+           1621517      lu48 SyloNB_2   annieb  R 4-05:43:44      1 cn141
+           1615806      lu48     CLAY gianluca  R 6-02:22:52      2 cn[063-064]
+           1615741      lu48     CLAY gianluca  R 6-03:51:45      2 cn[042-043]
+           1615736      lu48     CLAY gianluca  R 6-04:03:05      2 cn[127-128]
+         1632140_0      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn066
+         1632140_1      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn115
+         1632140_2      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn123
+         1632140_3      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn130
+         1632140_4      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn132
+         1632140_5      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn133
+         1632140_6      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn039
+         1632140_7      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn045
+         1632140_8      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn051
+         1632140_9      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn053
+        1632140_10      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn055
+        1632140_11      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn058
+        1632140_12      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn061
+        1632140_13      lu48 BM_CH1PA xiaopian  R    2:52:13      1 cn087
+           1632374       nuc       rs   wiekoo PD       0:00      1 (Resources)
+           1632375       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632378       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632379       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632377       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632380       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632384       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632383       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632386       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632392       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632397       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632396       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632399       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632403       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632402       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632404       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632406       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632412       nuc       rs   wiekoo PD       0:00      1 (Priority)
+           1632173       nuc       rs   wiekoo  R    1:44:19      1 nuc15
+           1632188       nuc       rs   wiekoo  R    1:38:36      1 nuc50
+           1632178       nuc       rs   wiekoo  R    1:43:30      1 nuc28
+           1632119       nuc       rs   wiekoo  R    2:14:53      1 nuc81
+           1632112       nuc       rs   wiekoo  R    2:16:17      1 nuc14
+           1632134       nuc       rs   wiekoo  R    2:10:20      1 nuc82
+           1632162       nuc       rs   wiekoo  R    1:57:39      1 nuc13
+           1632126       nuc       rs   wiekoo  R    2:14:42      1 nuc41
+           1632137       nuc       rs   wiekoo  R    2:07:23      1 nuc85
+           1632136       nuc       rs   wiekoo  R    2:07:49      1 nuc25
+           1632127       nuc       rs   wiekoo  R    2:13:12      1 nuc20
+           1632138       nuc       rs   wiekoo  R    2:07:06      1 nuc23
+           1632130       nuc       rs   wiekoo  R    2:11:57      1 nuc49
+           1632156       nuc       rs   wiekoo  R    2:03:27      1 nuc33
+           1632111       nuc       rs   wiekoo  R    2:22:32      1 nuc74
+           1632110       nuc       rs   wiekoo  R    2:24:57      1 nuc07
+           1632092       nuc       rs   wiekoo  R    2:35:13      1 nuc73
+           1632097       nuc       rs   wiekoo  R    2:30:14      1 nuc01
+           1632093       nuc       rs   wiekoo  R    2:34:07      1 nuc21
+           1632103       nuc       rs   wiekoo  R    2:29:08      1 nuc95
+           1632102       nuc       rs   wiekoo  R    2:29:35      1 nuc46
+           1632091       nuc       rs   wiekoo  R    2:40:24      1 nuc65
+           1632090       nuc       rs   wiekoo  R    2:43:09      1 nuc94
+           1632089       nuc       rs   wiekoo  R    2:47:06      1 nuc11
+           1632088       nuc       rs   wiekoo  R    2:49:39      1 nuc45
+           1632086       nuc       rs   wiekoo  R    2:56:14      1 nuc32
+           1632085       nuc       rs   wiekoo  R    2:56:33      1 nuc26
+           1632194       nuc       rs   wiekoo  R    1:17:00      1 nuc12
+           1632198       nuc       rs   wiekoo  R    1:14:56      1 nuc69
+           1632282       nuc       rs   wiekoo  R    1:02:00      1 nuc22
+           1632192       nuc       rs   wiekoo  R    1:25:18      1 nuc16
+           1632197       nuc       rs   wiekoo  R    1:16:45      1 nuc37
+           1632193       nuc       rs   wiekoo  R    1:23:53      1 nuc35
+           1632190       nuc       rs   wiekoo  R    1:26:17      1 nuc54
+           1632292       nuc       rs   wiekoo  R    1:01:58      1 nuc30
+           1632300       nuc       rs   wiekoo  R    1:00:56      1 nuc09
+           1632299       nuc       rs   wiekoo  R    1:01:58      1 nuc27
+           1632266       nuc       rs   wiekoo  R    1:12:46      1 nuc55
+           1632268       nuc       rs   wiekoo  R    1:11:41      1 nuc64
+           1632267       nuc       rs   wiekoo  R    1:12:37      1 nuc70
+           1632306       nuc       rs   wiekoo  R    1:00:56      1 nuc31
+           1632272       nuc       rs   wiekoo  R    1:11:27      1 nuc79
+           1632278       nuc       rs   wiekoo  R    1:10:39      1 nuc40
+           1632307       nuc       rs   wiekoo  R    1:00:56      1 nuc38
+           1632310       nuc       rs   wiekoo  R    1:00:56      1 nuc36
+           1632313       nuc       rs   wiekoo  R      59:52      1 nuc17
+           1632312       nuc       rs   wiekoo  R    1:00:56      1 nuc43
+           1632326       nuc       rs   wiekoo  R      37:39      1 nuc29
+           1632325       nuc       rs   wiekoo  R      38:12      1 nuc84
+           1632324       nuc       rs   wiekoo  R      40:22      1 nuc42
+           1632339       nuc       rs   wiekoo  R      28:49      1 nuc44
+           1632338       nuc       rs   wiekoo  R      29:13      1 nuc06
+           1632337       nuc       rs   wiekoo  R      29:30      1 nuc91
+           1632336       nuc       rs   wiekoo  R      29:55      1 nuc05
+           1632340       nuc       rs   wiekoo  R      28:39      1 nuc34
+           1632372       nuc       rs   wiekoo  R    INVALID      1 nuc48
+           1632316       nuc       rs   wiekoo  R      59:52      1 nuc53
+           1632341       nuc       rs   wiekoo  R      28:07      1 nuc80
+           1632334       nuc       rs   wiekoo  R      34:04      1 nuc87
+           1632333       nuc       rs   wiekoo  R      34:17      1 nuc63
+           1632332       nuc       rs   wiekoo  R      35:26      1 nuc58
+           1632331       nuc       rs   wiekoo  R      35:29      1 nuc66
+           1632317       nuc       rs   wiekoo  R      59:52      1 nuc39
+           1632335       nuc       rs   wiekoo  R      31:19      1 nuc57
+           1632369       nuc       rs   wiekoo  R       2:43      1 nuc83
+           1632318       nuc       rs   wiekoo  R      59:52      1 nuc47
+           1632322       nuc       rs   wiekoo  R      46:32      1 nuc88
+           1632323       nuc       rs   wiekoo  R      46:32      1 nuc61
+           1632329       nuc       rs   wiekoo  R      36:01      1 nuc19
+           1632328       nuc       rs   wiekoo  R      36:34      1 nuc10
+           1632327       nuc       rs   wiekoo  R      36:46      1 nuc76
+           1632371       nuc       rs   wiekoo  R       0:52      1 nuc60
+           1632361       nuc       rs   wiekoo  R      10:29      1 nuc86
+           1632330       nuc       rs   wiekoo  R      35:39      1 nuc24
+           1632364       nuc       rs   wiekoo  R       8:38      1 nuc04
+           1632363       nuc       rs   wiekoo  R      10:02      1 nuc08
+           1632356       nuc       rs   wiekoo  R      11:10      1 nuc72
+           1632355       nuc       rs   wiekoo  R      12:40      1 nuc56
+           1632368       nuc       rs   wiekoo  R       6:07      1 nuc92
+           1632367       nuc       rs   wiekoo  R       7:57      1 nuc78
+           1632366       nuc       rs   wiekoo  R       8:14      1 nuc67
+           1632348       nuc       rs   wiekoo  R      20:32      1 nuc62
+           1632350       nuc       rs   wiekoo  R      20:01      1 nuc89
+           1632349       nuc       rs   wiekoo  R      20:32      1 nuc52
+           1632320       nuc       rs   wiekoo  R      58:47      1 nuc18
+           1632319       nuc       rs   wiekoo  R      59:52      1 nuc51
+           1632344       nuc       rs   wiekoo  R      25:46      1 nuc75
+           1632343       nuc       rs   wiekoo  R      26:20      1 nuc93
+           1632354       nuc       rs   wiekoo  R      16:14      1 nuc90
+           1632353       nuc       rs   wiekoo  R      16:35      1 nuc03
+           1632352       nuc       rs   wiekoo  R      17:26      1 nuc71
+           1632351       nuc       rs   wiekoo  R      19:07      1 nuc77
+           1632345       nuc       rs   wiekoo  R      25:05      1 nuc68
+           1632321       nuc       rs   wiekoo  R      55:42      1 nuc02
+           1632347       nuc       rs   wiekoo  R      24:28      1 nuc59
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ squeuecancel 1632416[1@acct -j[C[C[C[C[C[C[C[Cbatch -N4 WASTED.sh acct -j 1632410 --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CJ[C[C[C[C[C[C[C[C[9@control show job[C[C[C[C[C[C[C[Cbatch calculatepi.sbatch-ossmal.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Pcontrol show job 1632410[9Pacct -J[C[C[C[C[C[C[C[Cj[C[C[C[C[C[C[C[C --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[30Pbatch -N4 WASTED.sh 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pacct -j 1632416[1Pcancel[C[C[C[C[C[C[C[C[9Pqueue[Ksqueuecancel 1632416[1@acct -j[C[C[C[C[C[C[C[Cbatch -N4 WASTED.sh acct -j 1632410 --format=JobID,State,Start,End,Elapsed
+[?2004lJobID             State               Start                 End    Elapsed 
+------------ ---------- ------------------- ------------------- ---------- 
+1632410         RUNNING 2025-10-06T13:50:32             Unknown   00:03:12 
+1632410.bat+    RUNNING 2025-10-06T13:50:32             Unknown   00:03:12 
+1632410.ext+    RUNNING 2025-10-06T13:50:32             Unknown   00:03:12 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ cat[K[K[Ksacct -j 1632410 --format=JobID,State,Start,End,Elapsed
+[?2004lJobID             State               Start                 End    Elapsed 
+------------ ---------- ------------------- ------------------- ---------- 
+1632410         RUNNING 2025-10-06T13:50:32             Unknown   00:04:23 
+1632410.bat+    RUNNING 2025-10-06T13:50:32             Unknown   00:04:23 
+1632410.ext+    RUNNING 2025-10-06T13:50:32             Unknown   00:04:23 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ squeu[Kue -u ossmal
+[?2004l             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1632410       hep MNXB11 P   ossmal  R       4:34      1 cx08
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ squeue -u ossmalacct -j 1632410 --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cqueue[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccancel 1632416[1@acct -j[C[C[C[C[C[C[C[Cbatch -N4 WASTED.sh acct -j 1632410 --format=JobID,State,Start,End,Elapsed[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CJ[C[C[C[C[C[C[C[C[9@control show job[C[C[C[C[C[C[C[Cbatch calculatepi.sbatch-ossmal.sh [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ks[Ksqueue -u ossmal
+[?2004l             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1632410       hep MNXB11 P   ossmal  R       6:04      1 cx08
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ squeue -u ossmalacct -j 1632410 --format=JobID,State,Start,End,Elapsed
+[?2004lJobID             State               Start                 End    Elapsed 
+------------ ---------- ------------------- ------------------- ---------- 
+1632410         RUNNING 2025-10-06T13:50:32             Unknown   00:06:35 
+1632410.bat+    RUNNING 2025-10-06T13:50:32             Unknown   00:06:35 
+1632410.ext+    RUNNING 2025-10-06T13:50:32             Unknown   00:06:35 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ sacct -j 1632410 --format=JobID,State,Start,End,Elapsed
+[?2004lJobID             State               Start                 End    Elapsed 
+------------ ---------- ------------------- ------------------- ---------- 
+1632410       COMPLETED 2025-10-06T13:50:32 2025-10-06T13:57:16   00:06:44 
+1632410.bat+  COMPLETED 2025-10-06T13:50:32 2025-10-06T13:57:16   00:06:44 
+1632410.ext+  COMPLETED 2025-10-06T13:50:32 2025-10-06T13:57:16   00:06:44 
+kossmal@cosmos-pkf:~/git/MNXB11-Homework-2025/homework3/calculatePI/scripts\[?2004h[ossmal@cosmos-pkf scripts]$ ls[K[Kcat [K[K[K[Kexit
+[?2004lexit
